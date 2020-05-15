@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <form method="get">
+        <form class="w-100">
+            <div class="row mt-3">
+                <div class="offset-9 col-2">
+                    <div class="form-group">
+                        <select name="sort" class="form-control">
+                            <option value="date-asc" {% if sort == 'date-asc' %} selected{% endif %}>Oldest</option>
+                            <option value="date-desc" {% if sort == 'date-desc' %} selected{% endif %}>Newest</option>
+                            <option value="like-desc" {% if sort == 'like-desc' %} selected{% endif %}>Top rated</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <button type="submit" class="btn btn-primary">Apply</button>
+                </div>
+            </div>
+        </form>
+    </form>
+    <div class="row">
+        {% for post in posts %}
+        <div class="col-md-3.5 ml-auto mr-auto mb-3">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><b>{{ post.title|truncatechars:20 }}</b></h5>
+                    <p class="card-text text-justify">{{ post.text|truncatechars:100 }}</p>
+                    <p>
+                        <small><i class="fa fa-calendar"> {{post.date}}</i></small>
+                        <small><i class="fa fa-thumbs-up"> {{post.like_count}}</i></small>
+                    </p>
+                    <a href="/post/{{post.id}}" class="btn btn-primary w-100">Read more</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
