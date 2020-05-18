@@ -108,7 +108,7 @@ class CreatePostViews(CreateView):
 
 class TagPostViews(DetailView):
     template_name = 'tag_posts.html'
-    model = Post
+    model = Tag
 
     def get_context_data(self, **kwargs):
         tag_id = self.kwargs.get('pk', '')
