@@ -1,6 +1,4 @@
-heroku create
-git push heroku main
-
-heroku run python manage.py migrate
-heroku run docker-compose up -d
+#heroku create
+heroku container:push web
+heroku container:release web
 heroku open
