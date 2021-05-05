@@ -1,7 +1,7 @@
 web_run:
   build: .
   environment:
-    MYENV: NEWS
+    PORT: 8000
   volumes:
     - .:/code
   ports:
