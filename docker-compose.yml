@@ -1,0 +1,8 @@
+web_run:
+  build: .
+  environment:
+    PORT: 8000
+  volumes:
+    - .:/code
+  ports:
+    - "8000:8000"
